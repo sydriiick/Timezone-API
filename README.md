@@ -21,7 +21,7 @@ Before running the script, ensure you have the following installed:
 2. **Navigate to the project directory:**
 
     ```bash
-    cd timezone-database-population
+    cd Timezone-API
     ```
 
 3. **Install required Python packages:**
