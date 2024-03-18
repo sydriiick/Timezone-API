@@ -66,7 +66,7 @@ def populate_zone_details_table(conn):
         cursor.execute("SELECT zone_name from TZDB_TIMEZONES")
         zones = cursor.fetchall()
 
-        for zone in zones[:5]:
+        for zone in zones:
             
             params= {"key": config.API_KEY, "format": "json", "by": "zone", "zone": zone}
             response = requests.get(config.ZONE_URL, params=params)
