@@ -1,0 +1,25 @@
+-- SQLite
+CREATE TABLE IF NOT EXISTS TZDB_TIMEZONES (
+    country_code VARCHAR(2) NOT NULL,
+    country_name VARCHAR(100) NOT NULL,
+    zone_name VARCHAR(100) PRIMARY KEY NOT NULL,
+    gmtoffset NUMERIC,
+    import_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS TZDB_ZONE_DETAILS (
+    country_code VARCHAR(2) NOT NULL,
+    country_name VARCHAR(100) NOT NULL,
+    zone_name VARCHAR(100) NOT NULL,
+    gmtoffset NUMERIC NOT NULL,
+    dst NUMERIC NOT NULL,
+    zone_start NUMERIC NOT NULL,
+    zone_end NUMERIC NOT NULL,
+    import_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (zone_name, zone_start, zone_end)
+);
+
+CREATE TABLE IF NOT EXISTS TZDB_ERROR_LOG (
+    import_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    error_message VARCHAR(1000) NOT NULL
+);
